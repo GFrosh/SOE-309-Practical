@@ -1,22 +1,24 @@
-package com.example.Student.Manage.System;
+package com.example.Student.Manage.System.service;
 
+import com.example.Student.Manage.System.model.Student;
+import com.example.Student.Manage.System.repository.StudentRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service
 public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
     public List<Student> getAll() {
         return studentRepository.findAll();
     }
 
     public Student register(Student student) {
-        // LOGIC: CHECK IF EMAIL IS ALREADY TAKEN
         if (studentRepository.findByEmail(student.getEmail()).isPresent()) {
-            throw new RuntimeException("Email IS already taken");
+            throw new RuntimeException("Email is already taken");
         }
         return studentRepository.save(student);
     }
@@ -27,5 +29,4 @@ public class StudentService {
         }
         studentRepository.deleteById(id);
     }
-
 }
