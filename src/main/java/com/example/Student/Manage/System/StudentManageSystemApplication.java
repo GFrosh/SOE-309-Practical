@@ -2,23 +2,11 @@ package com.example.Student.Manage.System;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import lombok.*;
 
-@Entity
-@Table(name = "students")
-@Data // Automatically generates getters, setters, toString, equals, and hashCode methods
-@NoArgsConstructor // Generates a no-argument constructor
-@AllArgsConstructor // Generates an all-arguments constructor
-public class Student {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+@SpringBootApplication
+public class StudentManageSystemApplication {
 
-	@NotBlank(message = "Name cannot be empty")
-	private String name;
-	@Email(message = "Please provide a valid email address")
-	@Column(unique = true, nullable = false)
-	private String email;
+	public static void main(String[] args) {
+		SpringApplication.run(StudentManageSystemApplication.class, args);
+	}
 }
