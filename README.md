@@ -130,4 +130,4 @@ This project is provided as-is for educational purposes.
 
 ## Author
 
-Student Project
+[Gideon Onyegbula](https://devgideon.me/)
